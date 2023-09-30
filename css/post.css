@@ -1,0 +1,21 @@
+.card{
+    width: 70%;
+    margin: auto;
+    box-shadow: 0px 0px 1px 1px;
+}
+h4{
+    text-align: center;
+    font-weight: bold;
+}
+#link{
+    text-align: center;
+}
+#button{
+    /* width: 100%; */
+    background-color: green;
+    text-align: center;
+}
+#btn{
+    color: white;
+    padding: 10px;
+}

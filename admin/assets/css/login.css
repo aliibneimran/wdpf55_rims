@@ -1,0 +1,23 @@
+#container{
+    padding-top: 5%;
+}
+.card{
+    width: 40%;
+    margin: auto;
+}
+#form{
+    width: 90%;
+    margin: auto;
+}
+h4{
+    text-align: center;
+    font-weight: bold;
+    padding: 5px;
+}
+#link{
+    text-align: center;
+    
+}
+#btn{
+    font-weight: bold;
+}

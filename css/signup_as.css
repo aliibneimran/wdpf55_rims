@@ -1,0 +1,18 @@
+.container{
+    padding-top: 20%;
+}
+.card{
+    width: 60%;
+    margin: auto;
+    
+}
+
+h4{
+    text-align: center;
+    padding: 10px;
+    background-color: green;
+    color: white;
+}
+#link{
+    text-align: center;
+}
