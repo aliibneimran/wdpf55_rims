@@ -125,14 +125,14 @@ $row = $result->fetch_object();
                     var phone = response[i].js_phone;
                     var email = response[i].js_email;
                     var address = response[i].js_address;
-                    var cv = response[i].cv;
+                    var cv = response[i].js_cv;
                     tr += '<tr>';
                     tr += '<td>' + sn + '</td>';
                     tr += '<td>' + name + '</td>';
                     tr += '<td>' + phone + '</td>';
                     tr += '<td>' + email + '</td>';
                     tr += '<td>' + address + '</td>';
-                    tr += '<td>' + '<a href="#viewCVmodal" class="m-1 btn btn-success" data-toggle="modal" onclick=viewCV("' +
+                    tr += '<td>' + '<a href="#viewCVmodal" class="m-1 btn btn-success" data-toggle="modal" data-id="<?php echo $row->js_id?>" onclick=viewCV("' +
                         cv + '")><i class="fa fa-eye" data-toggle="tooltip"></i></a>' + '</td>';
                     tr += '<td><div class="d-flex">';
                     // tr +=
@@ -156,23 +156,23 @@ $row = $result->fetch_object();
 
 <!-- view -->
 <script>
-    function viewEmployee(ID = 2) {
-            var v_id = $('.view_cv #view_id').val();
-        $.ajax({
-            type: 'get',
-            data: {
-                id: ID,
-                v_id: v_id
-            },
-            url: "./employee/employee_view.php",
-            success: function(data) {
-                // $('#viewCVmodal .view_cv').html(data);
-                //         $('#viewCVmodal').modal('show');
-                var response = JSON.parse(data);
-                $('.view_cv #view_id').val(response.js_id);
-                $('.view_cv #cv').val(response.js_cv); 
-            }
-        })
+    function viewCV() {
+            var v_id = $('#view_id').val();
+            alert(v_id);
+        // $.ajax({
+        //     type: 'get',
+        //     data: {
+        //         id: v_id,
+        //     },
+        //     url: "./employee/employee_view.php",
+        //     success: function(data) {
+        //         // $('#viewCVmodal .view_cv').html(data);
+        //         //         $('#viewCVmodal').modal('show');
+        //         var response = JSON.parse(data);
+        //         // $('.view_cv #view_id').val(response.js_id);
+        //         // $('.view_cv #cv').val(response.js_cv); 
+        //     }
+        // })
     }
 </script>
 
