@@ -2,6 +2,8 @@
 session_start();
 require_once("./include/topmenu.php");
 require_once("./include/leftmenu.php");
+include_once("../connection/database.php");
+
 ?>
 <!-- end app-navbar -->
 <!-- begin app-main -->
@@ -68,9 +70,9 @@ require_once("./include/leftmenu.php");
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
             </div>
             <div class="modal-body view_cv">
-                <!-- <embed src="../uploads/" type="application/pdf" width="100%" height="400px" />
-                <input type="hidden" id="view_id"> -->
-                <embed id="fileViewer" src="../uploads/<?php echo $row->js_cv?>" type="application/pdf" width="100%" height="400px">
+                <!-- <embed src="../uploads/" type="application/pdf" width="100%" height="400px" /> -->
+                <input type="hidden" id="view_id">
+                <embed src="../uploads/<?php echo $row->js_id ?><?php echo $row->js_cv ?>" width="100%" height="400px">
             </div>
             <div class="modal-footer">
                 <input type="button" class="btn btn-default" data-dismiss="modal" value="Close">
@@ -129,7 +131,8 @@ require_once("./include/leftmenu.php");
                     tr += '<td>' + phone + '</td>';
                     tr += '<td>' + email + '</td>';
                     tr += '<td>' + address + '</td>';
-                    tr += '<td>' + '<a href="#fileModal" class="m-1 btn btn-success" data-toggle="modal" id="viewCV" onclick=viewCV("' +
+
+                    tr += '<td>' + '<a href="#fileModal" data-id="cv" class="m-1 btn btn-success cv" data-toggle="modal" id="viewCV" onclick=viewCV("' +
                         cv + '")><i class="fa fa-eye" data-toggle="tooltip"></i></a>' + '</td>';
                     tr += '<td><div class="d-flex">';
                     // tr +=
@@ -153,24 +156,23 @@ require_once("./include/leftmenu.php");
 
 <!-- view -->
 <script>
-    $(document).ready(function() {
-        $("#viewCV").click(function() {
-            // Make an AJAX request to get the file URL from the server
-            $.ajax({
-                url: "./job_seeker/seeker_view.php",
-                type: "GET",
-                success: function(data) {
-                    // Set the file URL to the embed element
-                    $("#fileViewer").attr("src", data);
-                    // Open the modal
-                    $("#fileModal").modal("show");
-                },
-                error: function() {
-                    alert("Error fetching file.");
-                }
-            });
+    function viewCV() {
+        var CV = $(this).data("id")
+        $.ajax({
+            url: "./job_seeker/seeker_view.php",
+            type: "post",
+            data: {
+                id: CV,
+            },
+            success: function(data) {
+                $(".view_cv").html(data);
+                $("#fileModal").modal("show");
+            },
+            error: function() {
+                alert("Error fetching file.");
+            }
         });
-    });
+    };
 </script>
 
 <!-- delete -->

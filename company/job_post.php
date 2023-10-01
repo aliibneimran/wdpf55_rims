@@ -21,6 +21,7 @@
 
         if($db->affected_rows){
           echo "Post A Job Successfully";
+          header("Location: home.php");
         }
 
 

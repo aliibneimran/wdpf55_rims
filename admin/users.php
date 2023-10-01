@@ -111,10 +111,10 @@
                     <label>User Email</label>
                     <input type="email" id="email" class="form-control" required>
                 </div>
-                <div class="form-group">
+                <!-- <div class="form-group">
                     <label>User Password</label>
                     <input type="password" id="password" class="form-control" required>
-                </div>
+                </div> -->
                 <div class="form-group">
                     <label>User Status</label>
                     <input type="text" id="status" class="form-control" required>
@@ -148,10 +148,10 @@
                     <label>User Email</label>
                     <input type="email" id="email" class="form-control" required>
                 </div>
-                <div class="form-group">
+                <!-- <div class="form-group">
                     <label>User Password</label>
                     <input type="password" id="password" class="form-control" required>
-                </div>
+                </div> -->
                 <div class="form-group">
                     <label>User Status</label>
                     <input type="text" id="status" class="form-control" required>

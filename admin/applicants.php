@@ -36,7 +36,7 @@
                                         <th>Phone</th>
                                         <th>Email</th>
                                         <th>Address</th>
-                                        <th>Company Name</th>
+                                        <!-- <th>Company Name</th> -->
                                         <th>CV</th>
                                         <th>Action</th>
                                     </tr>
@@ -124,7 +124,7 @@
                     tr += '<td>' + phone + '</td>';
                     tr += '<td>' + email + '</td>';
                     tr += '<td>' + address + '</td>';
-                    tr += '<td>' + c_name + '</td>';
+                    // tr += '<td>' + c_name + '</td>';
                     tr += '<td>' + '<a href="#viewCVmodal" class="m-1 btn btn-success" data-toggle="modal" onclick=viewApplication("' +
                         cv + '")><i class="fa fa-eye" data-toggle="tooltip"></i></a>' + '</td>';
                     tr += '<td><div class="d-flex">';

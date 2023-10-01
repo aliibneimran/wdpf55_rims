@@ -63,7 +63,8 @@ $row = $result->fetch_object();
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
             </div>
             <div class="modal-body view_mail">
-            <embed src="<?php echo $row->message ?>" id="message"  type="application/pdf" width="100%" height="400px" />
+            <!-- <embed id="message"  type="application/pdf" width="100%" height="400px" /> -->
+            <textarea name="" id="" class="form-control"><?php echo $row->message?></textarea>
             <input type="hidden" id="mail">
             </div>
             <div class="modal-footer">
