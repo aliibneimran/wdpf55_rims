@@ -1,11 +1,7 @@
-<?php 
+<?php
 session_start();
-include('../connection/database.php');
 require_once("./include/topmenu.php");
-require_once("./include/leftmenu.php"); 
-
-$result = $db->query("SELECT * FROM job_seeker");
-$row = $result->fetch_object();
+require_once("./include/leftmenu.php");
 ?>
 <!-- end app-navbar -->
 <!-- begin app-main -->
@@ -64,7 +60,7 @@ $row = $result->fetch_object();
 <!-- end app-container -->
 
 <!-- View Modal -->
-<div id="viewCVmodal" class="modal fade">
+<div id="fileModal" class="modal fade">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -72,8 +68,9 @@ $row = $result->fetch_object();
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
             </div>
             <div class="modal-body view_cv">
-            <embed src="../uploads/<?php echo $row->js_cv; ?>" type="application/pdf" width="100%" height="400px" />
-                <input type="hidden" id="view_id">
+                <!-- <embed src="../uploads/" type="application/pdf" width="100%" height="400px" />
+                <input type="hidden" id="view_id"> -->
+                <embed id="fileViewer" src="../uploads/<?php echo $row->js_cv?>" type="application/pdf" width="100%" height="400px">
             </div>
             <div class="modal-footer">
                 <input type="button" class="btn btn-default" data-dismiss="modal" value="Close">
@@ -113,7 +110,7 @@ $row = $result->fetch_object();
     function employeeList() {
         $.ajax({
             type: 'get',
-            url: "./employee/employee_list.php",
+            url: "./job_seeker/seeker_list.php",
             success: function(data) {
                 var response = JSON.parse(data);
                 console.log(response);
@@ -132,20 +129,20 @@ $row = $result->fetch_object();
                     tr += '<td>' + phone + '</td>';
                     tr += '<td>' + email + '</td>';
                     tr += '<td>' + address + '</td>';
-                    tr += '<td>' + '<a href="#viewCVmodal" class="m-1 btn btn-success" data-toggle="modal" data-id="<?php echo $row->js_id?>" onclick=viewCV("' +
+                    tr += '<td>' + '<a href="#fileModal" class="m-1 btn btn-success" data-toggle="modal" id="viewCV" onclick=viewCV("' +
                         cv + '")><i class="fa fa-eye" data-toggle="tooltip"></i></a>' + '</td>';
                     tr += '<td><div class="d-flex">';
                     // tr +=
                     //     '<a href="#viewEmployeeModal" class="m-1 btn btn-success" data-toggle="modal" onclick=viewEmployee("' +
                     //     id + '")><i class="fa fa-eye" data-toggle="tooltip"></i></a>';
-                   
+
                     tr +=
                         '<a href="#deleteEmployeeModal" class="m-1 btn btn-danger" data-toggle="modal" onclick=$("#delete_id").val("' +
                         id +
                         '")><i class="fa fa-trash" data-toggle="tooltip"></i></a>';
                     tr += '</div></td>';
                     tr += '</tr>';
-                    sn++ ;
+                    sn++;
                 }
                 //$('.loading').hide();
                 $('#employee_data').html(tr);
@@ -156,24 +153,24 @@ $row = $result->fetch_object();
 
 <!-- view -->
 <script>
-    function viewCV() {
-            var v_id = $('#view_id').val();
-            alert(v_id);
-        // $.ajax({
-        //     type: 'get',
-        //     data: {
-        //         id: v_id,
-        //     },
-        //     url: "./employee/employee_view.php",
-        //     success: function(data) {
-        //         // $('#viewCVmodal .view_cv').html(data);
-        //         //         $('#viewCVmodal').modal('show');
-        //         var response = JSON.parse(data);
-        //         // $('.view_cv #view_id').val(response.js_id);
-        //         // $('.view_cv #cv').val(response.js_cv); 
-        //     }
-        // })
-    }
+    $(document).ready(function() {
+        $("#viewCV").click(function() {
+            // Make an AJAX request to get the file URL from the server
+            $.ajax({
+                url: "./job_seeker/seeker_view.php",
+                type: "GET",
+                success: function(data) {
+                    // Set the file URL to the embed element
+                    $("#fileViewer").attr("src", data);
+                    // Open the modal
+                    $("#fileModal").modal("show");
+                },
+                error: function() {
+                    alert("Error fetching file.");
+                }
+            });
+        });
+    });
 </script>
 
 <!-- delete -->
@@ -186,7 +183,7 @@ $row = $result->fetch_object();
             data: {
                 id: id,
             },
-            url: "./employee/employee_delete.php",
+            url: "./job_seeker/seeker_delete.php",
             success: function(data) {
                 var response = JSON.parse(data);
                 employeeList();

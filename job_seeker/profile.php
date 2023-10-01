@@ -4,18 +4,14 @@
 <div class="container rounded bg-white mt-5 mb-5">
     <?php
     require_once("../connection/database.php");
-    if(isset($_REQUEST["id"])){
-        //$id = $_REQUEST["id"];
-        $sql =  "SELECT * FROM applicants WHERE js_id='$id'";
-        $result = $db->query($sql);
-        while ($row = $result->fetch_object()) {;
-    }
-    // $sql =  "SELECT * FROM job_seeker";
-    // $result = $db->query($sql);
-    // while ($row = $result->fetch_object()) {;
+    $id = $_REQUEST["id"];
+    $sql =  "SELECT * FROM job_seeker WHERE js_id = '$id'";
+    $result = $db->query($sql);
+    while ($row = $result->fetch_object()) {;
     ?>
+        <form action="" method="get">
         <div class="row">
-            <input type="hidden" name="id" value="<?php echo $row->js_id ?>">
+            <input type="text" name="id" value="<?php //echo $row->js_id ?>">
             <div class="col-md-3 border-right">
                 <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" width="150px" src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg"><span class="font-weight-bold"><?php echo $row->js_name ?></span><span class="text-black-50"><?php echo $row->js_email ?></span><span> </span></div>
             </div>
@@ -76,6 +72,7 @@
                 </div>
             </div>
         </div>
+        </form>
         <?php } ?>
 </div>
 </div>

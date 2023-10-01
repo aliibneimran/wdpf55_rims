@@ -13,7 +13,7 @@
                                 </a>
                             </li>
                             <li><a href="companies.php" aria-expanded="false"><i class="fa fa-bank"></i><span class="nav-title">Companies</span></a> </li>
-                            <li><a href="employees.php" aria-expanded="false"><i class="fa fa-handshake-o"></i><span class="nav-title">Job Seekers</span></a></li>
+                            <li><a href="job_seeker.php" aria-expanded="false"><i class="fa fa-handshake-o"></i><span class="nav-title">Job Seekers</span></a></li>
                             <li><a href="vacancy.php" aria-expanded="false"><i class="fa fa-graduation-cap"></i><span class="nav-title">Vacancy</span></a></li>
                             <li><a href="applicants.php" aria-expanded="false"><i class="fa fa-briefcase"></i><span class="nav-title">Applicants</span></a> </li>
                             <li><a href="users.php" aria-expanded="false"><i class="fa fa-group"></i><span class="nav-title">Manage Users</span></a> </li>

@@ -1,8 +1,8 @@
 <?php
-// session_start();
-// if (!isset($_SESSION["myemail"])) {
-//     header("Location: login.php");
-// }
+session_start();
+if (!isset($_SESSION["myemail"])) {
+    header("Location: login.php");
+}
 ?>
 <?php include_once("header.php"); ?>
 

@@ -11,13 +11,14 @@
         //$password = sha1($password); //encrypted password
 
 
-        $sql = "SELECT js_name, js_email FROM  job_seeker WHERE js_email='$email' AND js_password='$password'";
+        $sql = "SELECT * FROM  job_seeker WHERE js_email='$email' AND js_password='$password'";
         $result = $db->query($sql);
         $row = $result->fetch_assoc();
 
         session_start();
 
         if($result->num_rows>0){
+            $_SESSION["id"] = $row["js_id"];
             $_SESSION["myname"] = $row["js_name"];
             $_SESSION["myemail"] = $row["js_email"];
 
