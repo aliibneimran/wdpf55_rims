@@ -1,15 +1,15 @@
 <?php
     include ("../connect/database.php"); 
-    // extract($_POST);
-    $name= $_POST['name'];
-    $type= $_POST['type'];
-    $phone= $_POST['phone'];
-    $email= $_POST['email'];
-    $address= $_POST['address'];
+     extract($_POST);
+    // $name= $_POST['name'];
+    // $type= $_POST['type'];
+    // $phone= $_POST['phone'];
+    // $email= $_POST['email'];
+    // $address= $_POST['address'];
     
-    $id= $_POST['cp_id' ];
+    // $id= $_POST['cp_id' ];
 
-    $sql= "UPDATE company  SET  company_name = '$name', company_type = '$type', company_phone = '$phone' , company_email = '$email',company_address = '$address' WHERE company_id ='$id'" ;
+    $sql= "UPDATE company  SET  c_name = '$name', c_type = '$type', c_phone = '$phone' , c_email = '$email',c_address = '$address' WHERE c_id ='$get_id'" ;
 
 
     if(mysqli_query($db , $sql)){

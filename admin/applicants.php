@@ -54,7 +54,7 @@
     <!-- end container-fluid -->
 </div>
 <!-- end app-main -->
-<!-- View Modal -->viewCVmodal
+<!-- View Modal -->
 <div id="viewCVmodal" class="modal fade">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -63,7 +63,7 @@
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
             </div>
             <div class="modal-body view_employee">
-
+                <iframe id="resumeFrame" style="width: 100%; height: 500px;"></iframe>
             </div>
             <div class="modal-footer">
                 <input type="button" class="btn btn-default" data-dismiss="modal" value="Close">
@@ -125,6 +125,7 @@
                     tr += '<td>' + email + '</td>';
                     tr += '<td>' + address + '</td>';
                     // tr += '<td>' + c_name + '</td>';
+
                     tr += '<td>' + '<a href="#viewCVmodal" class="m-1 btn btn-success" data-toggle="modal" onclick=viewApplication("' +
                         cv + '")><i class="fa fa-eye" data-toggle="tooltip"></i></a>' + '</td>';
                     tr += '<td><div class="d-flex">';
@@ -143,6 +144,13 @@
         });
     }
 </script>
+<script>
+        function viewApplication(resumeURL) {
+            var resumeFrame = document.getElementById("resumeFrame");
+            resumeFrame.src = resumeURL;
+            $('#viewCVmodal').modal('show');
+        }
+    </script>
 <!-- delete -->
 <script>
     function deleteapplicant() {

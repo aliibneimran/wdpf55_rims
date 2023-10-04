@@ -19,7 +19,7 @@
                             <li><a href="users.php" aria-expanded="false"><i class="fa fa-group"></i><span class="nav-title">Manage Users</span></a> </li>
             
                             <li><a href="mail.php" aria-expanded="false"><i class="nav-icon ti ti-email"></i><span class="nav-title">Mail</span></a>
-                            </li>                                         
+                                                                    
                             
                             <!-- <li>
                                 <a class="has-arrow" href="javascript:void(0)" aria-expanded="false"><i class="nav-icon ti ti-layers"></i><span class="nav-title">Pages</span><span class="nav-label label label-primary">1</span></a>

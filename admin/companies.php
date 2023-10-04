@@ -81,7 +81,7 @@
                 <div class="form-group">
                     <label>Company Address</label>
                     <textarea class="form-control" id="address" required></textarea>
-                    <input type="hidden" id="c_id" class="form-control" required>
+                    <input type="hidden" id="get_id" class="form-control" required>
                 </div>
             </div>
             <div class="modal-footer">
@@ -183,10 +183,10 @@
                     tr +=
                         '<a href="#viewCompanyModal" class="m-1 btn btn-success" data-toggle="modal" onclick=viewCompany("' +
                         id + '")><i class="fa fa-eye" data-toggle="tooltip"></i></a>';
-                    tr +=
-                        '<a href="#editCompanyModal" class="m-1 btn btn-primary" data-toggle="modal" onclick=viewCompany("' +
-                        id +
-                        '")><i class="fa fa-edit" data-toggle="tooltip"></i></a>';
+                    // tr +=
+                    //     '<a href="#editCompanyModal" class="m-1 btn btn-primary" data-toggle="modal" onclick=viewCompany("' +
+                    //     id +
+                    //     '")><i class="fa fa-edit" data-toggle="tooltip"></i></a>';
                     tr +=
                         '<a href="#deleteCompanyModal" class="m-1 btn btn-danger" data-toggle="modal" onclick=$("#delete_id").val("' +
                         id +
@@ -208,7 +208,7 @@
         var phone = $('.edit_company #phone').val();
         var email = $('.edit_company #email').val();
         var address = $('.edit_company #address').val();
-        var c_id = $('.edit_company #c_id').val();
+        var get_id = $('.edit_company #get_id').val();
 
         $.ajax({
             type: 'post',
@@ -218,7 +218,7 @@
                 phone: phone,
                 email: email,
                 address: address,
-                c_id: c_id,
+                get_id: get_id,
             },
             url: "./company/company_edit.php",
             success: function(data) {

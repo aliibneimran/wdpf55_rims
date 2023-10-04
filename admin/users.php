@@ -219,10 +219,10 @@
                     tr +=
                         '<a href="#viewUserModal" class="m-1 btn btn-success" data-toggle="modal" onclick=viewUser("' +
                         id + '")><i class="fa fa-eye" data-toggle="tooltip"></i></a>';
-                    tr +=
-                        '<a href="#editUserModal" class="m-1 btn btn-primary" data-toggle="modal" onclick=viewUser("' +
-                        id +
-                        '")><i class="fa fa-edit" data-toggle="tooltip"></i></a>';
+                    // tr +=
+                    //     '<a href="#editUserModal" class="m-1 btn btn-primary" data-toggle="modal" onclick=viewUser("' +
+                    //     id +
+                    //     '")><i class="fa fa-edit" data-toggle="tooltip"></i></a>';
                     tr +=
                         '<a href="#deleteUserModal" class="m-1 btn btn-danger" data-toggle="modal" onclick=$("#delete_id").val("' +
                         id +

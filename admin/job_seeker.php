@@ -70,9 +70,7 @@ include_once("../connection/database.php");
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
             </div>
             <div class="modal-body view_cv">
-                <!-- <embed src="../uploads/" type="application/pdf" width="100%" height="400px" /> -->
-                <input type="hidden" id="view_id">
-                <embed src="../uploads/<?php echo $row->js_id ?><?php echo $row->js_cv ?>" width="100%" height="400px">
+                <iframe id="resumeFrame" style="width: 100%; height: 500px;"></iframe>
             </div>
             <div class="modal-footer">
                 <input type="button" class="btn btn-default" data-dismiss="modal" value="Close">
@@ -132,8 +130,8 @@ include_once("../connection/database.php");
                     tr += '<td>' + email + '</td>';
                     tr += '<td>' + address + '</td>';
 
-                    tr += '<td>' + '<a href="#fileModal" data-id="cv" class="m-1 btn btn-success cv" data-toggle="modal" id="viewCV" onclick=viewCV("' +
-                        cv + '")><i class="fa fa-eye" data-toggle="tooltip"></i></a>' + '</td>';
+                    tr += '<td>' + '<a href="#fileModal" data-id="cv" class="m-1 btn btn-success cv" data-toggle="modal" onclick=viewCV("' +
+                        address + '")><i class="fa fa-eye" data-toggle="tooltip"></i></a>' + '</td>';
                     tr += '<td><div class="d-flex">';
                     // tr +=
                     //     '<a href="#viewEmployeeModal" class="m-1 btn btn-success" data-toggle="modal" onclick=viewEmployee("' +
@@ -153,9 +151,15 @@ include_once("../connection/database.php");
         });
     }
 </script>
-
-<!-- view -->
 <script>
+        function viewCV(resumeURL) {
+            var resumeFrame = document.getElementById("resumeFrame");
+            resumeFrame.src = resumeURL;
+            $('#fileModal').modal('show');
+        }
+    </script>
+<!-- view -->
+<!-- <script>
     function viewCV() {
         var CV = $(this).data("id")
         $.ajax({
@@ -173,7 +177,7 @@ include_once("../connection/database.php");
             }
         });
     };
-</script>
+</script> -->
 
 <!-- delete -->
 <script>
