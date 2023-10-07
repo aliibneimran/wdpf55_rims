@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 29, 2023 at 03:36 PM
+-- Generation Time: Oct 07, 2023 at 02:32 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 7.4.33
 
@@ -83,16 +83,22 @@ INSERT INTO `applicants` (`apply_id`, `name`, `phone`, `email`, `cv`, `address`,
 
 CREATE TABLE `catagory` (
   `catagory_id` int(11) NOT NULL,
-  `catagory` varchar(100) NOT NULL
+  `catagory_name` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `catagory`
 --
 
-INSERT INTO `catagory` (`catagory_id`, `catagory`) VALUES
-(1, 'Part Time'),
-(2, 'Full Time');
+INSERT INTO `catagory` (`catagory_id`, `catagory_name`) VALUES
+(1, 'Marketing'),
+(2, 'Customer Service'),
+(3, 'Human Resource'),
+(4, 'Project Management'),
+(5, 'Business Development'),
+(6, 'Sales & Communication'),
+(7, 'Teaching & Education'),
+(8, 'Design & Creative');
 
 -- --------------------------------------------------------
 
@@ -115,8 +121,7 @@ CREATE TABLE `company` (
 --
 
 INSERT INTO `company` (`c_id`, `c_name`, `c_type`, `c_phone`, `c_email`, `c_address`, `c_password`) VALUES
-(1, 'Samsung', 'Manuacture', '96546645', 'samsung@gmail.com', 'Dhaka', '1234'),
-(5, 'MOHAMMAD ZIUAUL HAQUE', 'MOHAMMAD ZIUAUL HAQUE', '', 'rahim@gmail.com', '27,MODDHO NANDIPARA', '1234');
+(1, 'Samsung', 'Manuacture', '96546645', 'samsung@gmail.com', 'Dhaka', '1234');
 
 -- --------------------------------------------------------
 
@@ -128,24 +133,6 @@ CREATE TABLE `company_profile` (
   `id` int(11) NOT NULL,
   `details` varchar(3000) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `division`
---
-
-CREATE TABLE `division` (
-  `id` int(11) NOT NULL,
-  `name` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `division`
---
-
-INSERT INTO `division` (`id`, `name`) VALUES
-(1, 'Dhaka');
 
 -- --------------------------------------------------------
 
@@ -164,22 +151,24 @@ CREATE TABLE `jobs` (
   `phone` varchar(20) NOT NULL,
   `email` varchar(50) NOT NULL,
   `dateline` date NOT NULL,
-  `details` text NOT NULL
+  `details` text NOT NULL,
+  `c_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `jobs`
 --
 
-INSERT INTO `jobs` (`job_id`, `company_name`, `title`, `vacancy`, `timing`, `salary`, `address`, `phone`, `email`, `dateline`, `details`) VALUES
-(1, 'Samsung', 'Manager', 10, 'Part Time, Full Time', '30K', 'Dhaka,Bangladesh', '9661623132', 'samsung@gmail.com', '2023-09-30', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.'),
-(2, 'Samsung', 'Merketing', 20, ' Full Time', '25K', 'Dhaka,Bangladesh', '9661623132', 'samsung@gmail.com', '2023-09-30', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.'),
-(3, 'Apple', 'Developer', 10, ' Full Time', '40K', 'Dhaka,Bangladesh', '9661623132', 'apple@gmail.com', '2023-09-30', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.'),
-(4, 'Xioami', 'Developer', 10, ' Full Time', '40K', 'Dhaka,Bangladesh', '9661623132', 'xioami@gmail.com', '2023-09-30', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.'),
-(5, 'Akij', 'Developer', 10, ' Part Time, Full Time', '35K', 'Dhaka,Bangladesh', '9661623132', 'akij@gmail.com', '2023-09-30', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.'),
-(6, 'Walton', 'Developer', 10, ' Part Time, Full Time', '35K', 'Dhaka,Bangladesh', '9661623132', 'walton@gmail.com', '2023-09-30', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.'),
-(9, 'Abc', 'IT', 10, 'Full Time', '$120 - $200', '27,MODDHO NANDIPARA', '84616133', 'abc@gmail.com', '2023-10-04', 'vervdbstdfbbs'),
-(10, 'vsv', 'sdvsv', 10, 'Part Time', '$120 - $200', 'vsvs', 'vsvsv', 'nadia@gmail.com', '0000-00-00', 'svsvs');
+INSERT INTO `jobs` (`job_id`, `company_name`, `title`, `vacancy`, `timing`, `salary`, `address`, `phone`, `email`, `dateline`, `details`, `c_id`) VALUES
+(1, 'Samsung', 'Manager', 10, 'Part Time, Full Time', '30K', 'Dhaka,Bangladesh', '9661623132', 'samsung@gmail.com', '2023-09-30', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', 0),
+(2, 'Samsung', 'Merketing', 20, ' Full Time', '25K', 'Dhaka,Bangladesh', '9661623132', 'samsung@gmail.com', '2023-09-30', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', 0),
+(3, 'Apple', 'Developer', 10, ' Full Time', '40K', 'Dhaka,Bangladesh', '9661623132', 'apple@gmail.com', '2023-09-30', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', 0),
+(4, 'Xioami', 'Developer', 10, ' Full Time', '40K', 'Dhaka,Bangladesh', '9661623132', 'xioami@gmail.com', '2023-09-30', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', 0),
+(5, 'Akij', 'Developer', 10, ' Part Time, Full Time', '35K', 'Dhaka,Bangladesh', '9661623132', 'akij@gmail.com', '2023-09-30', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', 0),
+(6, 'Walton', 'Developer', 10, ' Part Time, Full Time', '35K', 'Dhaka,Bangladesh', '9661623132', 'walton@gmail.com', '2023-09-30', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', 0),
+(9, 'Abc', 'IT', 10, 'Full Time', '$120 - $200', '27,MODDHO NANDIPARA', '84616133', 'abc@gmail.com', '2023-10-04', 'vervdbstdfbbs', 0),
+(10, 'vsv', 'sdvsv', 10, 'Part Time', '$120 - $200', 'vsvs', 'vsvsv', 'nadia@gmail.com', '0000-00-00', 'svsvs', 0),
+(11, 'Samsung', 'Marketing Manager', 15, 'Full Time', '$130 - $300', 'Dhaka', '8692+22', 'samsung@gmail.com', '2023-10-25', 'dvfdbdfbgd', 0);
 
 -- --------------------------------------------------------
 
@@ -205,6 +194,31 @@ INSERT INTO `job_seeker` (`js_id`, `js_name`, `js_phone`, `js_email`, `js_addres
 (7, 'MD. ALI AKBAR MIAH', '96546645', 'rahim@gmail.com', '27,MODDHO NANDIPARA', 'doc.pdf', '1234'),
 (12, 'MD. ALI AKBAR MIAH', 'vevev', 'kahim@gmail.com', '27,MODDHO NANDIPARA', '00 (1).pdf', '116'),
 (13, 'MD. ALI AKBAR MIAH', '84616133', 'prothomalo@gmail.com', '27,MODDHO NANDIPARA', 'MS EXCEL.pdf', '1234');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `location`
+--
+
+CREATE TABLE `location` (
+  `id` int(11) NOT NULL,
+  `name` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `location`
+--
+
+INSERT INTO `location` (`id`, `name`) VALUES
+(1, 'Dhaka'),
+(2, 'Khulna'),
+(3, 'Barisal'),
+(4, 'Chattogram'),
+(5, 'Rangpur'),
+(6, 'Rajshahi'),
+(7, 'Sylhet'),
+(8, 'Gazipur');
 
 -- --------------------------------------------------------
 
@@ -266,22 +280,23 @@ ALTER TABLE `company_profile`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `division`
---
-ALTER TABLE `division`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Indexes for table `jobs`
 --
 ALTER TABLE `jobs`
-  ADD PRIMARY KEY (`job_id`);
+  ADD PRIMARY KEY (`job_id`),
+  ADD KEY `c_id` (`c_id`);
 
 --
 -- Indexes for table `job_seeker`
 --
 ALTER TABLE `job_seeker`
   ADD PRIMARY KEY (`js_id`);
+
+--
+-- Indexes for table `location`
+--
+ALTER TABLE `location`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `message`
@@ -309,7 +324,7 @@ ALTER TABLE `applicants`
 -- AUTO_INCREMENT for table `catagory`
 --
 ALTER TABLE `catagory`
-  MODIFY `catagory_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `catagory_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `company`
@@ -324,22 +339,22 @@ ALTER TABLE `company_profile`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `division`
---
-ALTER TABLE `division`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
 -- AUTO_INCREMENT for table `jobs`
 --
 ALTER TABLE `jobs`
-  MODIFY `job_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `job_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `job_seeker`
 --
 ALTER TABLE `job_seeker`
   MODIFY `js_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+
+--
+-- AUTO_INCREMENT for table `location`
+--
+ALTER TABLE `location`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `message`
