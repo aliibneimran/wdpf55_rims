@@ -1,4 +1,7 @@
-<?php include_once("./include/header.php");?>
+<?php 
+include_once("./include/header.php");
+include_once("./connection/database.php")
+?>
 
 
         <!-- Carousel Start -->
@@ -49,18 +52,22 @@
                                 <input type="text" class="form-control border-0" placeholder="Keyword" />
                             </div>
                             <div class="col-md-4">
-                                <select class="form-select border-0">
+                                <select class="form-select border-0" id="catagories">
                                     <option selected>Category</option>
-                                    <option value="1">Part Time</option>
-                                    <option value="2">Full Time</option>
+                                    <?php 
+                                        $result = $db->query("SELECT * FROM catagory");
+                                        while($row = $result->fetch_assoc()):
+                                    ?>
+                                    <option value="<?php echo $row["catagory_id"]?>"><?php echo $row["catagory_name"]?></option>
+                                    <?php endwhile?>
                                 </select>
                             </div>
                             <div class="col-md-4">
                                 <select class="form-select border-0" id="division">
                                     <option selected>Location</option>
                                     <?php 
-                                        require_once("./connection/database.php");
-                                        $result = $db->query("SELECT * FROM division");
+                                        //require_once("./connection/database.php");
+                                        $result = $db->query("SELECT * FROM location");
                                         while($row = $result->fetch_assoc()):
                                     ?>
                                     <option value="<?php echo $row["id"]?>1"><?php echo $row["name"]?></option>
@@ -78,7 +85,13 @@
         </div>
         <!-- Search End -->
 
+<?php 
+//  include("./connection/db.php");
+//  $sql = "SELECT * FROM jobcategories";
+//  $result = $db->query($sql);
+//  while($row = $result->fetch_assoc()):
 
+?>
         <!-- Category Start -->
         <div class="container-xxl py-5">
             <div class="container">
@@ -144,6 +157,7 @@
             </div>
         </div>
         <!-- Category End -->
+<?php //endwhile?>
 
 
         <!-- Jobs Start -->

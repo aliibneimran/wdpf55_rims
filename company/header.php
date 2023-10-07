@@ -46,7 +46,12 @@
         <!-- Navbar Start -->
         <nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">
             <a href="home.php" class="navbar-brand d-flex align-items-center text-center py-0 px-4 px-lg-5">
-                <h1 class="m-0 text-primary">RIMS</h1>
+                <style>
+                    #logo{
+                        height: 60px;
+                    }
+                </style>
+                <h1 class="m-0 text-primary"><img src="../img/logo1.png" alt="" id="logo"></h1>
             </a>
             <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
                 <span class="navbar-toggler-icon"></span>
@@ -54,26 +59,8 @@
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <div class="navbar-nav ms-auto p-4 p-lg-0">
                     <a href="home.php" class="nav-item nav-link">Home</a>
-                    <!-- <a href="about.php" class="nav-item nav-link active">About</a> -->
-                    <!-- <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Jobs<Cap></Cap></a>
-                        <div class="dropdown-menu rounded-0 m-0">
-                            <a href="part_time.php" class="dropdown-item">Part Time</a>
-                            <a href="full_time.php" class="dropdown-item">Full Time</a>
-                        </div>
-                    </div> -->
-                    <!-- <a href="contact.php" class="nav-item nav-link">Contact</a> -->
-                    <a href="profile.php" class="nav-item nav-link">Profile</a>
-                    <a href="logout.php" class="nav-item nav-link">Logout</a>
-                    <!-- <a class="nav-item nav-link" data-toggle="modal" href="#registerModal">register</a> -->
-                    <!-- <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Signup</a>
-                        <div class="dropdown-menu rounded-0 m-0">
-                            <a href="employee.php" class="dropdown-item">As Employee</a>
-                            <a href="employer.php" class="dropdown-item">As Employer</a>
-                        </div>
-                    </div> -->
-                    
+                    <a href="about.php" class="nav-item nav-link">About</a>
+                    <a href="contact.php" class="nav-item nav-link">Contact</a>
                 </div>
                 <a href="job_post.php" class="btn btn-primary rounded-0 py-4 px-lg-5 d-none d-lg-block">Post A Job<i class="fa fa-arrow-right ms-3"></i></a>
             </div>

@@ -238,7 +238,7 @@
     }
 </script>
 <!-- add -->
-<script>
+<!-- <script>
     function addUser() {
         var name = $('.add_user #name').val();
         var role = $('.add_user #role').val();
@@ -265,7 +265,7 @@
 
         })
     }
-</script>
+</script> -->
 <!-- edit -->
 <script>
     function editUser() {

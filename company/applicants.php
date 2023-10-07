@@ -51,12 +51,30 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-8">
+            <div class="col-lg-8 text-center">
+                <h3>Applicants</h3>
                 <div class="card mb-4">
                     <div class="card-body">
-                        <form action="">
-                           profile
-                        </form>
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>SN</th>
+                                    <th>Name</th>
+                                    <th>Position</th>
+                                    <th>CV</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td>Rahim</td>
+                                    <td>Manager</td>
+                                    <td>
+                                        <a href="#viewCV" data-bs-toggle="modal"><i class="fa fa-eye"></i></a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
@@ -64,3 +82,20 @@
     </div>
 </section>
 <?php include_once("footer.php"); ?>
+
+<div id="viewCV" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">View CV</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            </div>
+            <div class="modal-body">
+                HELLO
+            </div>
+            <div class="modal-footer">
+                <input type="button" class="btn btn-default" data-dismiss="modal" value="Close">
+            </div>
+        </div>
+    </div>
+</div>
